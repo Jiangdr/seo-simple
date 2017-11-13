@@ -39,12 +39,9 @@ var entire = [];
  */
 function loadList(page, url) {
 
-    page.open(url);
-
-    console.log('');
-    console.log('pageSize: ' + pageSize, 'currentPage: ' + currentPage);
-
-    setTimeout(function () {
+    page.open(url).then(function () {
+        console.log('');
+        console.log('pageSize: ' + pageSize, 'currentPage: ' + currentPage);
         page.evaluate(function () {
             var lis = document.querySelectorAll('#conRptList>li');
             var datas = [];
@@ -88,14 +85,13 @@ function loadList(page, url) {
                         console.log("----end----");
                         console.log(entire);
 
-                        save(entire);                                                          //保存数据
+                        // save(entire);  //保存数据
                     }
 
                 }, 2000);
             });
-
         });
-    }, 2000)
+    });
 }
 
 

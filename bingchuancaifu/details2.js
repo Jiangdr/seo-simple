@@ -148,7 +148,7 @@ function entries({page2, hrefs, idx, details, origin}) {
                             console.log('获取数据' + details.length + '条');
                             // 如果不是最后一页，递归调用到下一页
 
-                            getDetails(origin, origin.url, details);
+                            getDetails(origin, null, details);
 
                         } else {
 
